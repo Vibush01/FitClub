@@ -16,6 +16,7 @@ const express = require('express');
      app.use('/api/auth', require('./routes/auth'));
      app.use('/api/admin', require('./routes/admin'));
      app.use('/api/owner', require('./routes/owner'));
+     app.use('/api/trainer', require('./routes/trainer'));
 
      // Basic Route
      app.get('/', (req, res) => {
