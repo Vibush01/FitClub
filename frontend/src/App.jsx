@@ -1,10 +1,29 @@
-function App() {
-  return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold text-blue-600">Fitness Website Frontend</h1>
-      <p className="mt-2 text-gray-700">Vite React app is running with Tailwind CDN!</p>
-    </div>
-  )
-}
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+     import { ToastContainer } from 'react-toastify';
+     import 'react-toastify/dist/ReactToastify.css';
+     import Navbar from './components/Navbar';
+     import LandingPage from './pages/LandingPage';
+     import Signup from './pages/Signup';
+     import Login from './pages/Login';
+     import Dashboard from './pages/Dashboard';
 
-export default App
+     function App() {
+       return (
+         <Router>
+           <div className="flex flex-col min-h-screen">
+             <Navbar />
+             <main className="flex-grow">
+               <Routes>
+                 <Route path="/" element={<LandingPage />} />
+                 <Route path="/signup" element={<Signup />} />
+                 <Route path="/login" element={<Login />} />
+                 <Route path="/dashboard" element={<Dashboard />} />
+               </Routes>
+             </main>
+             <ToastContainer position="top-right" autoClose={3000} />
+           </div>
+         </Router>
+       );
+     }
+
+     export default App;
